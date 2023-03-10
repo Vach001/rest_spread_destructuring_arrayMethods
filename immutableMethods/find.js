@@ -3,12 +3,12 @@
 function myFind (array, element) {
     for(let i = 0; i<array.length; i++) {
         let item = array[i];
-              
+
         if(item === element) {
             return item;
         }
         if(i === array.length-1) {
-            return `That element is not in array`;
+            return 'undefined';
         }
     }
 };
