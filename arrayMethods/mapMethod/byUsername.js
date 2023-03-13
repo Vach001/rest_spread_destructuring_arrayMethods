@@ -12,7 +12,7 @@ const users = [
 ];
 
 function getUserNames(usersArray) {
-    return usersArray.map((user) => user.username);
+    return usersArray.map(({ username }) => username) 
 };
 
 console.log(getUserNames(users)); // ['Yuri Gagarin', 'Nil Armstrong']
