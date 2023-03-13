@@ -2,7 +2,7 @@
 
 function parseInteger(mixArray) {
     return mixArray.map((number) => {
-        if (+number === +number || +number === 0) {
+        if (!Number.isNaN(+number)) {
             return +number;
         }
         else {
