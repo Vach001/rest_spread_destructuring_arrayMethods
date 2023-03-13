@@ -1,11 +1,10 @@
 //- Write a function which calculates average age of users.
 
 function getAverageAge(usersGroup) {
-
-    return usersGroup.map((user) => user.age).reduce((sum, current) => {
-
-        return (sum + current) / usersGroup.length;
-    });
+    const sumOfAges = usersGroup.reduce((acc, {age}) => {
+        return (acc + age);
+    }, 0);
+    return sumOfAges / usersGroup.length;
 };
 
 const users = [
