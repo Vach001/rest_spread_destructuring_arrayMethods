@@ -1,7 +1,6 @@
 function concatenateArrays (arrayOne, arrayTwo) {
-    const concatenatedArrays = [];
-    concatenatedArrays.push(...arrayOne, ...arrayTwo);
-    return concatenatedArrays;
+
+    return [...arrayOne, ...arrayTwo];
 }
 
 const arrFirst = [1, 2, 3, 4];
