@@ -12,7 +12,7 @@ const users = [
 ];
 
 function getUsernameLengths(usersArray) {
-    return usersArray.map((user) => user.username.length);
+    return usersArray.map(({username}) => username.length);
 };
 
 console.log(getUsernameLengths(users)); // [12, 13]
