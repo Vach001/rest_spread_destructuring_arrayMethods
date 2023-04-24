@@ -1,16 +1,26 @@
 //implementation find function method
 
-function myFind (array, element) {
-    for(let i = 0; i<array.length; i++) {
-        let item = array[i];
+Array.prototype.myFind = function (action = () => {}) {
+  for (let i = 0; i < this.length; i++) {
+    const element = this[i];
 
-        if(item === element) {
-            return item;
-        }
-        if(i === array.length-1) {
-            return 'undefined';
-        }
+    const result = action(element);
+
+    if (result === true) {
+      return element;
     }
+    if (i === this.length - 1) {
+      return "undefined";
+    }
+  }
 };
-const array = [1, 2, 3, 4, 5, 6, 7];
-console.log(myFind(array, 5));
+const array = [1, 2, 3, 4, 6, 5, 7];
+const foo = (item) => item === 8;
+
+const checkMyFind = array.myFind(foo);
+console.log(checkMyFind);
+
+// checking find implementation
+
+const check = array.find(foo);
+console.log(check);
