@@ -2,12 +2,10 @@
 
 Array.prototype.myFind = function (action = () => {}) {
   for (let i = 0; i < this.length; i++) {
-    const element = this[i];
-
-    const result = action(element);
+    const result = action(this[i], i, this);
 
     if (result === true) {
-      return element;
+      return this[i];
     }
     if (i === this.length - 1) {
       return "undefined";
