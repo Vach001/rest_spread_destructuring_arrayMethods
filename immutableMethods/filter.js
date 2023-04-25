@@ -1,19 +1,24 @@
 //implementation filter function method
 
-function myFilter (array, action = () => {}) {
-    const newArray = [];
+Array.prototype.myFilter = function (action = () => {}) {
+  const newArray = [];
 
-    for(let i = 0; i <= array.length-1; i++) {
-        let currentItem = array[i];
+  for (let i = 0; i < this.length; i++) {
 
-        if(action(currentItem)) {
-
-            newArray.push(currentItem);
-        }
+    if (action(this[i], i, this)) {
+      newArray.push(this[i]);
     }
-    return newArray;
+  }
+  return newArray;
 };
 
 const myArray = [9, 8, 7, 6, 5, 4, 3];
+const foo = (item) => item >= 5;
 
-console.log(myFilter(myArray)); 
+const checkMyArray = myArray.myFilter(foo);
+console.log(checkMyArray);
+
+// checking implementation
+
+const check = myArray.filter(foo);
+console.log(check);
