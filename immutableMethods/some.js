@@ -1,14 +1,23 @@
 //implementation some function method
 
-function mySome(myArray, action = () => {}) {
-    let isSome = false;
+Array.prototype.mySome = function (action = () => {}) {
+  for (let i = 0; i < this.length; i++) {
 
-    for(let i = 0; i < myArray.length; i++) {
-        let currentItem = array[i];
-
-        if(action(currentItem)) {
-            return isSome = true;
-        } 
+    if (action(this[i], i, this)) {
+      return true;
     }
-    return isSome;
+  }
+  return false;
 };
+
+const array = [1, 2, 3, 4, 5];
+const foo = (item) => item > 4
+const checkMySome = array.mySome(foo);
+
+console.log(checkMySome);
+
+//check implementation
+
+const checkSome = array.some(foo);
+
+console.log(checkSome);
